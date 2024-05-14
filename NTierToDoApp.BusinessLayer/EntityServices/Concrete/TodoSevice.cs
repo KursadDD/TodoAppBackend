@@ -36,11 +36,9 @@ namespace NTierToDoApp.BusinessLayer.EntityServices.Concrete
             todo.StartDate = todoUpdateDto.StartDate;
             todo.DueDate = todoUpdateDto.DueDate;
             if (todoUpdateDto.MemberId > 0) todo.MemberId = todoUpdateDto.MemberId;
-            if(todoUpdateDto.IsCompleted)
-            {
-                todo.IsCompleted = todoUpdateDto.IsCompleted;
+            todo.IsCompleted = todoUpdateDto.IsCompleted;
+            if (todoUpdateDto.IsCompleted)
                 todo.ComlatedDate = DateTime.Now;
-            }
 
             Update(todo);
             _ = SaveAsync();
